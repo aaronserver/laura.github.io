@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poema para Laura</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffd700, #ff8c00); /* Gradient from yellow to dark orange */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        header {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-top: 0;
+        }
+
+        #countdown {
+            font-size: 3em;
+            margin-top: 10px;
+        }
+
+        #birthday-wish {
+            font-size: 2em;
+            margin-top: 10px;
+            animation: bounce 2s infinite; /* Simple bounce animation */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡Feliz Cumpleaños, Laura!</h1>
+        <p id="birthday-wish"></p>
+        <p>Contando los días, las horas, los minutos...</p>
+        <div id="countdown"></div>
+    </header>
+
+    <section>
+        <h2>Poema de Amor</h2>
+        <p>
+            En el cielo de tus ojos, encuentro el sol,<br>
+            Radiante como una rosa en plena floración.<br>
+            Tus rizos danzan con la brisa suave,<br>
+            Eres mi melodía, mi eterna canción.<br><br>
+
+            En tu abrazo encuentro mi refugio,<br>
+            En tu sonrisa, la luz de mi camino.<br>
+            Eres el sueño que nunca quiero despertar,<br>
+            Mi amor por ti, un fuego divino.<br><br>
+
+            Como el viento acaricia la pradera,<br>
+            Tu ternura acaricia mi alma entera.<br>
+            Eres la musa que inspira mi poesía,<br>
+            En este verso, mi amor se guía.<br><br>
+
+            En el tapiz de la noche estrellada,<br>
+            Tu nombre resuena, una balada.<br>
+            Eres mi constelación, mi faro brillante,<br>
+            En el océano del amor, mi único amante.<br><br>
+
+            ¡Feliz cumpleaños, mi Laura querida!,<br>
+            En tu día especial, mi alma encendida.<br>
+            Que cada estrella en el cielo celebre tu luz,<br>
+            Eres mi todo, mi amor, mi cruz.
+        </p>
+    </section>
+
+    <section>
+        <h2>Detalles Especiales</h2>
+        <table>
+            <tr>
+                <th>Categoría</th>
+                <th>Detalle</th>
+            </tr>
+            <tr>
+                <td>Película Favorita</td>
+                <td>Encanto</td>
+            </tr>
+            <tr>
+                <td>Comida Favorita</td>
+                <td>Pasta</td>
+            </tr>
+            <tr>
+                <td>Color Favorito</td>
+                <td>Amarillo</td>
+            </tr>
+            <tr>
+                <td>Persona Favorita</td>
+                <td>A veces yo 😉, la mayoría de las veces su madre.</td>
+            </tr>
+            <tr>
+                <td>Bebida Favorita</td>
+                <td>Odia el café negro, pero lo toma de todas formas. ¿Quizás para parecer inteligente?</td>
+            </tr>
+            <tr>
+                <td>Tema Favorito de Conversación</td>
+                <td>Geografía</td>
+            </tr>
+        </table>
+    </section>
+
+    <script>
+        // Countdown Timer
+        const countdownDate = new Date("Nov 28, 2023 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "¡Feliz Cumpleaños, Laura!";
+                document.getElementById("birthday-wish").innerHTML = "¡Que este día esté lleno de alegría y amor!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
